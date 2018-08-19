@@ -54,7 +54,12 @@ rs=st.executeQuery("select tipo from empresa");
             case "EC":
                 document.getElementById('tp').innerHTML="Engenharia Cívil";
             break;
-            
+                case "EM":
+                document.getElementById('tp').innerHTML="Engenharia Mecanica";
+            break;
+            case "EE":
+                document.getElementById('tp').innerHTML="Engenharia Elétrica";
+            break;
                }
         
         
