@@ -30,15 +30,12 @@ rs.next();
                     <label>Email</label>           <input type="text" id="email" name="email" placeholder="@exemplo.com"/>
                     <label>DescriçãoDaVaga</label> <input type="text" id="descricao" name="descricao"/>
                     <label>Telefone</label>        <input type="text" id="telefone" name="telefone" placeholder="(00)0000-0000"/>
-                    <label>Cnpj</label>            <input type="text" id="cnpj" name="cnpj" placeholder="000-000-000/0000-0"/>
                 <label>Tipo</label>            <select name="foo" style="width: 120px" id="tipo">
    <%
-Statement st2=con.createStatement();
-ResultSet rs2;
-rs2=st2.executeQuery("select tipo from area");
-//rs=st.executeQuery("select tipo from empresa");
-        while(rs2.next()){
-            out.println("<option>"+rs2.getString("tipo")+"</option>");
+rs=st.executeQuery("select descricao from tipo order by descricao");
+//rs=st.executeQuery("select descricao from tipo");
+        while(rs.next()){
+            out.println("<option>"+rs.getString("descricao")+"</option>");
         }%>
                 </select>
                     <label>Requisito</label>
@@ -51,18 +48,11 @@ rs2=st2.executeQuery("select tipo from area");
 
     </body>	
 </html>
-
-
-
-
 <script>
 $(document).ready(function(){
    $("#telefone").mask("(00)0000-0000"); 
    $("#cnpj").mask("000-000-000/0000-0"); 
     
-    
-    
-  
 $("#cad_btn").click(function(){
                 //        $("formulario")[0].reset();;
                         //alert($("#tipo").val());

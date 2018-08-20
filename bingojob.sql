@@ -16,6 +16,50 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `area`
+--
+
+DROP TABLE IF EXISTS `area`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `area` (
+  `tipo` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `area`
+--
+
+LOCK TABLES `area` WRITE;
+/*!40000 ALTER TABLE `area` DISABLE KEYS */;
+INSERT INTO `area` VALUES ('EngenhariaCívil'),('Tecnologia');
+/*!40000 ALTER TABLE `area` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bj`
+--
+
+DROP TABLE IF EXISTS `bj`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bj` (
+  `nome` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bj`
+--
+
+LOCK TABLES `bj` WRITE;
+/*!40000 ALTER TABLE `bj` DISABLE KEYS */;
+INSERT INTO `bj` VALUES ('bingojob');
+/*!40000 ALTER TABLE `bj` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `empresa`
 --
 
@@ -23,12 +67,14 @@ DROP TABLE IF EXISTS `empresa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `empresa` (
-  `nome` varchar(10) DEFAULT NULL,
-  `cnpj` varchar(20) DEFAULT NULL,
-  `endereco` varchar(30) DEFAULT NULL,
-  `email` varchar(20) DEFAULT NULL,
+  `nome` varchar(10) NOT NULL DEFAULT '',
+  `endereco` varchar(500) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `tel` varchar(20) DEFAULT NULL,
-  `tipo` varchar(20) DEFAULT NULL
+  `tipo` varchar(20) DEFAULT NULL,
+  `requisito` varchar(500) DEFAULT NULL,
+  `vaga` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`nome`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,7 +84,32 @@ CREATE TABLE `empresa` (
 
 LOCK TABLES `empresa` WRITE;
 /*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
+INSERT INTO `empresa` VALUES ('goldxengen','','alexsander.reboucas@gmail.com',NULL,'EC',NULL,NULL),('login','caminho das árvores,proximo da unifacs sentido iguatemi','paulopestana@login.com.br',NULL,'TI',NULL,NULL);
 /*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tipo`
+--
+
+DROP TABLE IF EXISTS `tipo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tipo` (
+  `sigla` varchar(10) DEFAULT NULL,
+  `quant` int(11) DEFAULT '0',
+  `descricao` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipo`
+--
+
+LOCK TABLES `tipo` WRITE;
+/*!40000 ALTER TABLE `tipo` DISABLE KEYS */;
+INSERT INTO `tipo` VALUES ('TI',0,'Tecnologia da Informação'),('EM',0,'Engenharia Mecânica'),('EC',0,'Engenharia Civil'),('EE',0,'Engenharia Elétrica'),('PB',0,'Publicidade'),('ADM',0,'Administração');
+/*!40000 ALTER TABLE `tipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -74,4 +145,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-07  8:11:53
+-- Dump completed on 2018-08-19 14:43:54
