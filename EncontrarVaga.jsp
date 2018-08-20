@@ -4,7 +4,10 @@
 <%@include file="con.jsp"%>
 <script src="./js/jquery.min.js"></script>
 <!--%@ page language="java" import="conexao.*%>-->
- 
+<script>
+    desc=[];
+    sigla=[];
+</script>
     
 <%
 
@@ -16,12 +19,29 @@ rs=st.executeQuery("select * from bj");
 <title><%=rs.getString("nome")%></title>
     <head>
   <meta charset="UTF-8">
+
+        <%
+rs=st.executeQuery("select descricao from tipo");
+while(rs.next()){     
+%>
+<script>
+desc.push("<%=rs.getString("descricao")%>");
+</script>
+<%}%>
+
+        <%//sigla
+rs=st.executeQuery("select sigla from tipo");
+while(rs.next()){     
+%>
+<script>
+sigla.push("<%=rs.getString("sigla")%>");
+</script>
+<%}%>
+        
         <script>
-    <%
-            out.println("alz");
-            %>
     function mudar(){
         var nome=document.getElementById('tipo').value;
+        /*
         switch(nome){
             case "TI":
                 document.getElementById('tp').innerHTML="Tecnologia da Informação";
@@ -42,6 +62,12 @@ rs=st.executeQuery("select * from bj");
                 document.getElementById('tp').innerHTML="Admnistração";
             break;
                }
+               */
+        for(var i=0;i<desc.length;i++)
+            if(nome==sigla[i]){
+               document.getElementById('tp').innerHTML=desc[i]; 
+            }
+        
   }
 </script>
 </head>

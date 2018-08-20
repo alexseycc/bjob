@@ -6,6 +6,7 @@ var nome="TI";
 
 var fruits = [];
 var desc = [];
+var sigla = [];
 var op;
 
 </script>
@@ -35,13 +36,24 @@ document.write("<br>valor de fruit: "+fruits[0]);
 </script>
 
 
-<%
+<%//descricao
 rs=st.executeQuery("select descricao from tipo");
 while(rs.next()){     
 %>
 
 <script>
 desc.push("<%=rs.getString("descricao")%>");
+</script>
+<%
+}
+%>
+<%//sigla
+rs=st.executeQuery("select sigla from tipo");
+while(rs.next()){     
+%>
+
+<script>
+sigla.push("<%=rs.getString("sigla")%>");
 </script>
 <%
 }
@@ -53,6 +65,6 @@ document.write("<br>desc:"+desc[1]);
 document.write("tamanho:"desc.length);
 */
 for(var i=0;i<desc.length;i++)
-document.write("<br>desc:"+desc[i]);
+document.write("<br>desc:"+desc[i]+" sigla:"+sigla[i]);
 document.write("<br>tamanho:"+desc.length);
     </script>
