@@ -20,7 +20,7 @@ rs=st.executeQuery("select * from bj");
     <head>
   <meta charset="UTF-8">
 
-        <%
+        <%//descricao
 rs=st.executeQuery("select descricao from tipo");
 while(rs.next()){     
 %>
@@ -83,12 +83,17 @@ BingoJob bng = new BingoJob();
 <div class="title">EnontrarVaga</div>
             <select value="Escolha" id="tipo" name="tipo" onchange="mudar()">
    <%
-rs=st.executeQuery("select sigla from tipo");
-       while(rs.next()){
-            out.println("<option>"+rs.getString("sigla")+"</option>");
+                ResultSet sigla=null;
+sigla=st.executeQuery("select sigla from tipo order by sigla");
+       while(sigla.next()){
+            out.println("<option>"+sigla.getString("sigla")+"</option>");
         }
-                %>
-                </select><pre id="tp"> 
+                %><%
+ResultSet desc=st.executeQuery("select descricao from tipo order by sigla limit 1");
+desc.next();
+String descS="<script>document.write(nome)</script>";
+%>
+                </select><pre id="tp"><%=desc.getString("descricao")%>
 </pre>
             
             </div>

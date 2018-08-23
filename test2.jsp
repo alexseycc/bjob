@@ -13,7 +13,7 @@ var op;
 
 
 
-
+<%="<script>nome</script>"%>
 <%
 String opt="<script>document.write(nome)</script>";
 rs=st.executeQuery("select descricao from tipo where sigla='ti'");
