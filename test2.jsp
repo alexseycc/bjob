@@ -13,8 +13,17 @@ var op;
 
 
 
-<%="<script>nome</script>"%>
+<%="<script>nome='alab'</script>"%>declaration
+<%out.println("<script>nome='alx'</script>");%>scriptlet
+<%!
+public static int i=0;
+
+public int imp(){
+ return i++;   //expression
+}
+%>
 <%
+out.println("calculando:"+imp());
 String opt="<script>document.write(nome)</script>";
 rs=st.executeQuery("select descricao from tipo where sigla='ti'");
 rs.next();
@@ -24,8 +33,9 @@ out.println(opt==opt?"ok":"errou");
 out.println("<br>"+rs.getString("descricao"));
 String opp=rs.getString("descricao");
 %>
-<%="<br>welcome "+opt
-%>
+<%="<br>welcome "+opt%>
+
+<%="<br>welcome "+nome%>
 
 <script>
 op="<%=opp %>";

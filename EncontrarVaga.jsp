@@ -10,11 +10,9 @@
 </script>
     
 <%
-
 rs=st.executeQuery("select * from bj");
     rs.next();
     %>
- 
 <html lang="pt-br">
 <title><%=rs.getString("nome")%></title>
     <head>
@@ -22,16 +20,16 @@ rs=st.executeQuery("select * from bj");
 
         <%//descricao
 rs=st.executeQuery("select descricao from tipo");
-while(rs.next()){     
+    while(rs.next()){     
 %>
 <script>
-desc.push("<%=rs.getString("descricao")%>");
+    desc.push("<%=rs.getString("descricao")%>");
 </script>
 <%}%>
 
         <%//sigla
 rs=st.executeQuery("select sigla from tipo");
-while(rs.next()){     
+    while(rs.next()){     
 %>
 <script>
 sigla.push("<%=rs.getString("sigla")%>");
