@@ -15,12 +15,29 @@
 <script src="./js/jquery.mask.min.js"></script>
 <body>
 <div align="center">
+    <%!
+    public String getValue(){
+String symbol="?";
+String comma=",";
+String res="";
+    for(int i =1;i<=4;i++){
+        if(i==4)
+        res+=symbol;  
+        else{
+        res+=(symbol+comma);  
+        }
+        }
+return res;
+}
+
+     %>
     <%
+//int quant=;    
     //Connection con= db.getCon();
-    //ñ obrigado o try,mas ajuda a evitar alguns erros!,dont allow equals names
+    //単 obrigado o try,mas ajuda a evitar alguns erros!,dont allow equals names
 try{
 //st.execute("insert into empresa(nome) values('alx')");
-PreparedStatement pst=con.prepareStatement("insert into empresa(nome,email,descricao,tel) values(?,?,?,?)"); 
+pst=con.prepareStatement("insert into empresa(nome,email,descricao,tel) values("+getValue()+")"); 
 pst.setString(1,request.getParameter("nome"));
 pst.setString(2,request.getParameter("email"));
 pst.setString(3,request.getParameter("descricao"));
@@ -38,8 +55,7 @@ out.println("Nome:"+request.getParameter("nome")+"<br>");
 out.println("Email:"+request.getParameter("email")+"<br>");
 out.println("Descricao:"+request.getParameter("descricao")+"<br>");
 out.println("Telefone:"+request.getParameter("telefone")+"<br>");
-out.println("Tipo:"+request.getParameter("tipo")+"<br>");
-out.println("Requisito:"+request.getParameter("requisito")+"<br>");
+//out.println("Endereço:"+request.getParameter("endereco")+"<br>");
 
     %>
     </div>
