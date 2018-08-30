@@ -30,7 +30,7 @@ rs.next();
                     <label>Email</label>           <input type="text" id="email" name="email" placeholder="@exemplo.com"/>
                     <label>DescriçãoDaVaga</label> <input type="text" id="descricao" name="descricao"/>
                     <label>Telefone</label>        <input type="text" id="telefone" name="telefone" placeholder="(00)0000-0000"/>
-                <label>Tipo</label>            <select name="foo" style="width: 120px" id="tipo">
+                <label>Tipo</label>            <select name="tipo" style="width: 120px" id="tipo">
    <%
 rs=st.executeQuery("select descricao from tipo order by descricao");
 //rs=st.executeQuery("select descricao from tipo");
@@ -54,10 +54,13 @@ $(document).ready(function(){
    $("#cnpj").mask("000-000-000/0000-0"); 
     
 $("#cad_btn").click(function(){
-                //        $("formulario")[0].reset();;
+                   //    $("formulario")[0].reset();
                         //alert($("#tipo").val());
 var tipo=$("#tipo").val();
 //$.get("CadastrandoEmpresa.jsp",{tipo:tipo});
 });
 });
 </script>
+<script>
+document.getElementById("formulario").reset()
+    </script>

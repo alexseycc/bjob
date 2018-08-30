@@ -7,5 +7,5 @@ Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bingoj
 Statement st=con.createStatement();
 ResultSet rs=null;
 ResultSet rs2=null;
-PreparedStatement pst = null;
+//PreparedStatement pst = null;
 %>
