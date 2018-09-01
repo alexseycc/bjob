@@ -2,15 +2,32 @@
 <%@include file="con.jsp"%>
 <%@ page import="java.sql.*" import="func.*" import="java.util.*"%>
 <%!
-//String alx="sa";
 //st.execute("insert into empresa(nome) values('"+alx+"')");
+public String parametro="";
 
+
+
+public String campos(String campo){
+    this.parametro=campo;
+return this.parametro;
+}
+public String[] camposDivididos(){
+String[] args=parametro.split("[,]");
+return args;
+       //return Arrays.toString(args);
+}
+
+public int incremento(){
+    String[] args=parametro.split("[,]");
+    int quant=args.length;
+    return quant;
+}
     public String getValue(){
 String symbol="?";
 String comma=",";
 String res="";
-    for(int i =1;i<=4;i++){
-        if(i==4)
+    for(int i=1;i<=incremento();i++){
+        if(i==incremento())
         res+=symbol;  
         else{
         res+=(symbol+comma);  
@@ -18,28 +35,13 @@ String res="";
         }
 return res;
 }
-
-public String campos(String campo){
-    return campo;
-}
-public String camposDivididos(String campo){
-String[] args=campo.split("[,]");
- return args[0];
-    //   return Arrays.toString(args);
-}
-
-public int incremento(String campo){
-    String[] args=campo.split("[,]");
-    int quant=args.length;
-    return quant;
-}
-
+/*
 public void cad(PreparedStatement pst,Connection con,String campo){
     try{
 //st.execute("insert into empresa(nome) values('alx')");
 pst=con.prepareStatement("insert into empresa("+campos(campo)+") values("+getValue()+")"); 
 for(int i=1;i<=incremento(campo);i++)
-pst.setString(i,request.getParameter(camposDivididos(campos(campo))));
+//pst.setString(i,request.getParameter(camposDivididos(campos(campo))));
 pst.execute();
 pst.close();
 con.close();
@@ -48,15 +50,55 @@ catch(Exception e){
 }
     
 }
-   
+*/
 %>
 <%
 Empresa emp=new Empresa();
 emp.setNome("ha");
 
-out.println("welcome:"+getValue()+"<br>");
-out.println("<br>campos:"+campos("nome,email,descricao,tel"));
-out.println("<br>quantidade:"+incremento("nome,descricao,telefone"));
-out.println("<br>campos divididos:"+camposDivididos(campos("nome,descricao,telefone")));
+/*
+try{
+pst=con.prepareStatement("insert into empresa("+campos("nome,email")+") values("+getValue()+")"); 
+for(int i=0;i<incremento();i++){
+pst.setString((i+1),request.getParameter(camposDivididos()[i]));
+}
+pst.execute();
+pst.close();
+con.close();
+    }
+catch(Exception e){
+} 
+*/
+
+
+
+try{
+pst=con.prepareStatement("insert into empresa("+campos("nome,email,descricao")+") values("+getValue()+")"); 
+for(int i=0;i<incremento();i++){
+pst.setString((i+1),camposDivididos()[i]);
+}
+pst.execute();
+pst.close();
+con.close();
+    }
+catch(Exception e){
+} 
+
+
+//out.println("<br>campos:"+campos("nome,email"));
+out.println("<br>campos:"+parametro);
+out.println("<br>"+getValue());
+out.println("<br>quantidade:"+incremento());
+for(int i=0;i<incremento();i++){
+out.println("<br>campos divididos:"+camposDivididos()[i]);
+}
+
+
+
+
+
+
+
+
 
 %>

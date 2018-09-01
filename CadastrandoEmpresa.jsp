@@ -16,12 +16,31 @@
 <body>
 <div align="center">
     <%!
+   public String parametro="";
+
+
+
+public String campos(String campo){
+    this.parametro=campo;
+return this.parametro;
+}
+public String[] camposDivididos(){
+String[] args=parametro.split("[,]");
+return args;
+       //return Arrays.toString(args);
+}
+
+public int incremento(){
+    String[] args=parametro.split("[,]");
+    int quant=args.length;
+    return quant;
+}
     public String getValue(){
 String symbol="?";
 String comma=",";
 String res="";
-    for(int i =1;i<=4;i++){
-        if(i==4)
+    for(int i=1;i<=incremento();i++){
+        if(i==incremento())
         res+=symbol;  
         else{
         res+=(symbol+comma);  
@@ -32,11 +51,8 @@ return res;
 
      %>
     <%
-//int quant=;    
-    //Connection con= db.getCon();
-    //単 obrigado o try,mas ajuda a evitar alguns erros!,dont allow equals names
-try{
-//st.execute("insert into empresa(nome) values('alx')");
+/*
+    try{
 pst=con.prepareStatement("insert into empresa(nome,email,descricao,tel) values("+getValue()+")"); 
 pst.setString(1,request.getParameter("nome"));
 pst.setString(2,request.getParameter("email"));
@@ -49,12 +65,28 @@ con.close();
     }
 catch(Exception e){
 }
-
+*/
+try{
+pst=con.prepareStatement("insert into empresa("+campos("nome,email,descricao,telefone")+") values("+getValue()+")"); 
+for(int i=0;i<incremento();i++){
+pst.setString((i+1),request.getParameter(camposDivididos()[i]));
+}
+pst.execute();
+pst.close();
+con.close();
+    }
+catch(Exception e){
+}
+    
 out.println("<h1>Cadastro BingoJob!</h1>");
-out.println("Nome:"+request.getParameter("nome")+"<br>");
-out.println("Email:"+request.getParameter("email")+"<br>");
-out.println("Descricao:"+request.getParameter("descricao")+"<br>");
-out.println("Telefone:"+request.getParameter("telefone")+"<br>");
+    
+for(int j=0;j<incremento();j++){
+out.println(camposDivididos()[j]+":"+request.getParameter(camposDivididos()[j])+"<br>");
+}
+//out.println("Nome:"+request.getParameter("nome")+"<br>");
+//out.println("Email:"+request.getParameter("email")+"<br>");
+//out.println("Descricao:"+request.getParameter("descricao")+"<br>");
+//out.println("Telefone:"+request.getParameter("telefone")+"<br>");
 //out.println("Endereço:"+request.getParameter("endereco")+"<br>");
 
     %>
