@@ -29,7 +29,7 @@ rs.next();
                     <label>Nome</label>            <input type="text" id="nome" name="nome"/>
                     <label>Email</label>           <input type="text" id="email" name="email" placeholder="@exemplo.com"/>
                     <label>DescriçãoDaVaga</label> <input type="text" id="descricao" name="descricao"/>
-                    <label>Telefone</label>        <input type="text" id="telefone" name="telefone" placeholder="(00)0000-0000"/>
+                    <label>Telefone</label>        <input type="text" id="tel" name="tel" placeholder="(00)0000-0000"/>
                 <label>Tipo</label>            <select name="tipo" style="width: 120px" id="tipo">
    <%
 rs=st.executeQuery("select descricao from tipo order by descricao");

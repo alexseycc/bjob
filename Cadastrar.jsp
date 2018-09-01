@@ -22,6 +22,11 @@ public int incremento(){
     int quant=args.length;
     return quant;
 }
+public int incremento2(){
+    String[] args=campos("alal,ala").split("[,]");
+    int quant=args.length;
+    return quant;
+}
     public String getValue(){
 String symbol="?";
 String comma=",";
@@ -91,7 +96,12 @@ out.println("<br>"+getValue());
 out.println("<br>quantidade:"+incremento());
 for(int i=0;i<incremento();i++){
 out.println("<br>campos divididos:"+camposDivididos()[i]);
+out.println("<br>insert: insert into empresa("+parametro+") values("+getValue()+")");
+out.println("<br>ps.setString("+(i+1)+",request.getParameter(\""+camposDivididos()[i]+"\")");
 }
+String nm="\"alan\"";
+out.println(nm);
+
 
 
 

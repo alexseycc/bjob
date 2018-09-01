@@ -67,10 +67,17 @@ catch(Exception e){
 }
 */
 try{
-pst=con.prepareStatement("insert into empresa("+campos("nome,email,descricao,telefone")+") values("+getValue()+")"); 
-for(int i=0;i<incremento();i++){
-pst.setString((i+1),request.getParameter(camposDivididos()[i]));
-}
+pst=con.prepareStatement("insert into empresa("+campos("nome,email,descricao,tel")+") values("+getValue()+")"); 
+//for(int i=0;i<incremento();i++){
+//pst.setString(i+1,request.getParameter("\""+camposDivididos()[i])+"\"");
+int i=0;
+int k=0;
+out.println("<script>alert(\""+camposDivididos()[0]+"\")</script>");
+pst.setString(++i,request.getParameter("\""+camposDivididos()[0]+"\""));
+//pst.setString(++i,request.getParameter("nome"));
+pst.setString(++i,request.getParameter("email"));
+pst.setString(++i,request.getParameter("descricao"));
+pst.setString(++i,request.getParameter("tel"));
 pst.execute();
 pst.close();
 con.close();
@@ -83,11 +90,13 @@ out.println("<h1>Cadastro BingoJob!</h1>");
 for(int j=0;j<incremento();j++){
 out.println(camposDivididos()[j]+":"+request.getParameter(camposDivididos()[j])+"<br>");
 }
+    
+    
 //out.println("Nome:"+request.getParameter("nome")+"<br>");
 //out.println("Email:"+request.getParameter("email")+"<br>");
 //out.println("Descricao:"+request.getParameter("descricao")+"<br>");
 //out.println("Telefone:"+request.getParameter("telefone")+"<br>");
-//out.println("Endereço:"+request.getParameter("endereco")+"<br>");
+//out.println("Endereรงo:"+request.getParameter("endereco")+"<br>");
 
     %>
     </div>
