@@ -18,6 +18,12 @@ String[] args=parametro.split("[,]");
 return args;
        //return Arrays.toString(args);
 }
+public String camposDivididos2(){
+String[] args=parametro.split("[,]");
+//for(int i=0;i<i.length;i++)
+//    return args[i];
+       return Arrays.toString(args);
+}
 
 public int incremento(){
     String[] args=parametro.split("[,]");
@@ -78,7 +84,7 @@ catch(Exception e){
 */
 
 
-
+/*
 try{
 pst=con.prepareStatement("insert into empresa("+campos("nome,email,descricao")+") values("+getValue()+")"); 
 for(int i=0;i<incremento();i++){
@@ -90,9 +96,9 @@ con.close();
     }
 catch(Exception e){
 } 
+*/
 
-
-//out.println("<br>campos:"+campos("nome,email"));
+out.println("<br>campos:"+campos("nome,email"));
 out.println("<br>campos:"+parametro);
 out.println("<br>"+getValue());
 out.println("<br>quantidade:"+incremento());
@@ -101,17 +107,7 @@ out.println("<br>campos divididos:"+camposDivididos()[i]);
 out.println("<br>insert: insert into empresa("+parametro+") values("+getValue()+")");
 out.println("<br>ps.setString("+(i+1)+",request.getParameter(\""+camposDivididos()[i]+"\")");
 }
-String nm="\"alan\"";
-out.println(nm);
-out.println("<br>pst.setString(i,request.getParameter(\"nome\"))");
-
-
-
-
-
-
-
-
-
+String cmp[]=camposDivididos2().replace("[","").split(",");
+out.println("<br>capoDividido2:"+cmp[0]+"");
 
 %>
