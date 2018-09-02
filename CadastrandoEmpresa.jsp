@@ -18,22 +18,25 @@
    public String parametro="";
 
 
-
+//setando os campos do db
 public String campos(String campo){
     this.parametro=campo;
 return this.parametro;
 }
+    //dividindo em array os campos
 public String[] camposDivididos(){
 String[] args=parametro.split("[,]");
 return args;
        //return Arrays.toString(args);
 }
 
+    //descobrindo quantos campos tem
 public int incremento(){
     String[] args=parametro.split("[,]");
     int quant=args.length;
     return quant;
 }
+    //colocando ps PREPARESTATEMENT embasado na quant dos campo
     public String getValue(){
 String symbol="?";
 String comma=",";
