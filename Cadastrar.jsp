@@ -1,6 +1,8 @@
 <%@ page contentType = "text/html;charset=utf-8" %>
 <%@include file="con.jsp"%>
 <%@ page import="java.sql.*" import="func.*" import="java.util.*"%>
+<link rel="stylesheet" type="text/css" href="./css/stilo.css" >
+
 <%!
 //st.execute("insert into empresa(nome) values('"+alx+"')");
 public String parametro="";
@@ -101,6 +103,7 @@ out.println("<br>ps.setString("+(i+1)+",request.getParameter(\""+camposDivididos
 }
 String nm="\"alan\"";
 out.println(nm);
+out.println("<br>pst.setString(i,request.getParameter(\"nome\"))");
 
 
 
