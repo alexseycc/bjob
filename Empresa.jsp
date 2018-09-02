@@ -38,8 +38,8 @@ rs=st.executeQuery("select descricao from tipo order by descricao");
             out.println("<option>"+rs.getString("descricao")+"</option>");
         }%>
                 </select>
-                    <label>Requisito</label>
-                    <textarea rows="4" cols="50" id="requisito" name="requisito">
+                    <label>Endereco</label>
+                    <textarea rows="4" cols="50" id="endereco" name="endereco">
                     </textarea> 
                     <input type="submit" value="Cadastrar" style="height:20px;width:200px" class="btn-primary btn-sm" id="cad_btn"/>
                 </form></pre>
@@ -50,15 +50,8 @@ rs=st.executeQuery("select descricao from tipo order by descricao");
 </html>
 <script>
 $(document).ready(function(){
-   $("#telefone").mask("(00)0000-0000"); 
+   $("#tel").mask("(00)0000-0000"); 
    $("#cnpj").mask("000-000-000/0000-0"); 
-    
-$("#cad_btn").click(function(){
-                   //    $("formulario")[0].reset();
-                        //alert($("#tipo").val());
-var tipo=$("#tipo").val();
-//$.get("CadastrandoEmpresa.jsp",{tipo:tipo});
-});
 });
 </script>
 <script>

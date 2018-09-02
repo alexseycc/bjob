@@ -54,7 +54,7 @@ return res;
      %>
     <%       //try catch dont necessary but dont allow eoor
 try{
-pst=con.prepareStatement("insert into empresa("+campos("nome,email,descricao,tel")+") values("+getValue()+")"); 
+pst=con.prepareStatement("insert into empresa("+campos("nome,email,descricao,tel,endereco")+") values("+getValue()+")"); 
 for(int i=1;i<=incremento();i+=2){
 pst.setString(i,request.getParameter(""+camposDivididos()[--i]+""));
 }
