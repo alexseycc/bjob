@@ -28,9 +28,8 @@ rs.next();
                 <form action="" method="get" id="formulario">
                     <label>Nome</label>            <input type="text" id="nome" name="nome"/>
                     <label>Email</label>           <input type="text" id="email" name="email" placeholder="@exemplo.com"/>
-                    <label>DescriçãoDaVaga</label> <input type="text" id="descricao" name="descricao"/>
                     <label>Telefone</label>        <input type="text" id="tel" name="tel" placeholder="(00)0000-0000"/>
-                <label>Tipo</label>            <select name="tipo" style="width: 120px" id="tipo">
+                <label>Tipo</label>            <select name="descricao" style="width: 120px" id="descricao">
    <%
 rs=st.executeQuery("select descricao from tipo order by descricao");
 //rs=st.executeQuery("select descricao from tipo");
@@ -41,7 +40,7 @@ rs=st.executeQuery("select descricao from tipo order by descricao");
                     <label>Endereco</label>
                     <textarea rows="4" cols="50" id="endereco" name="endereco">
                     </textarea> 
-                    <input type="submit" value="Cadastrar" style="height:20px;width:200px" class="btn-primary btn-sm" id="cad_btn"/>
+                    <input type="button" value="Cadastrar" style="height:20px;width:200px" class="btn-primary btn-sm" id="cad_btn"/>
                 </form></pre>
             </div>
         </div>
@@ -49,8 +48,9 @@ rs=st.executeQuery("select descricao from tipo order by descricao");
     </body>	
 </html>
 <script>
- document.querySelector("#formulario").addEventListener("click",function(){
- var nome=document.querySelector("#nome").value;
+ document.querySelector("#cad_btn").addEventListener("click",function(){
+/*
+     var nome=document.querySelector("#nome").value;
  var email=document.querySelector("#email").value;
  var descricao=document.querySelector("#descricao").value;
  var tel=document.querySelector("#tel").value;
@@ -59,8 +59,21 @@ rs=st.executeQuery("select descricao from tipo order by descricao");
 
      window.location.href = "testelogin.jsp?nome="+nome+"&email="+email+"&descricao="+descricao+"&tel="+tel+"&tipo="+tipo+"&endereco="+endereco; 
 //window.open("testelogin.jsp?nmm=" +nome); 
- 
+ */
+quantElement=document.getElementById("formulario").length;
+form=document.getElementById("formulario");
+arquivo="CadastrandoEmpresa.jsp?";
+query="";
 
+for(i=0;i<quantElement-1;i++){
+     if(i==(quantElement-2)){
+query+=(form.elements[i].id+"="+form.elements[i].value);
+      }
+        else{
+query+=(form.elements[i].id+"="+form.elements[i].value+"&");
+ }
+ }
+window.location.href = arquivo+query;
      
  });
                         

@@ -114,59 +114,47 @@ out.println("<br>capoDividido2:"+cmp[0]+"");
 */
 %>
 <form method="get" id="form" name="form">
-<input type="text" placeholder="nome" id="nm" name="nm"/>
-<input type="text" placeholder="nome" id="nm2" name="nm"/>
-<input type="text" id="nome" name="nome"/>
+<input type="text" placeholder="nome" id="nome1" name="nome1"/>
+<input type="text" placeholder="nome" id="nome2" name="nome2"/>
 <input type="text" id="email" name="email" placeholder="@exemplo.com"/>
 <input type="text" id="descricao" name="descricao"/>
 <input type="text" id="tel" name="tel" placeholder="(00)0000-0000"/>
-<select id="slc" value="alx">
-        <option>a</option>
-    <option>b</option>
+<select id="slc" value="alx" name="slc">
+        <option>alan</option>
+    <option>brunna</option>
     </select>
     
     <input type="button" id="btn" value="verificar"/>
 </form>
     <script>
-        quantElement=document.getElementById("form").length;
-        form=document.getElementById("form");
-        for(i=1;i<quantElement;i++){
-         alert("valor"+form.elements[i].value+"------id:"+form[i].id+"-----name:"+form.elements[i].name);
-        }
-        
-        //document.querySelector("#slc").addEventListener("change",function(){
+    quantElement=document.getElementById("form").length;
+          form=document.getElementById("form");
+            arquivo="testelogin.jsp?";
+        query="";
 document.querySelector("#btn").addEventListener("click",function(){
-    var nome=document.querySelector("#slc").value;
+    
+var nome=document.querySelector("#slc").value;
  var myObj = {nm:"alxsy"};
- //var myJSON = JSON.stringify(myObj["name"]);
-window.location.href = "testelogin.jsp?nmm=" +myObj["nm"]+"&slc="+nome; 
-//window.open("testelogin.jsp?nmm=" +nome); 
- 
+
+for(i=0;i<quantElement-1;i++){
+     if(form.elements[i].tagName=="SELECT"){
+//query+=("slc="+form.elements[i].value);
+query+=(form.elements[i].id+"="+form.elements[i].value);
+         alert("tag:"+form.elements[i].tagName);
+alert("id:"+form.elements[i].id);
+alert("name:"+form.elements[i].getAttribute("name"));
+alert("name:"+form.elements[i].name);
+      }
+        else{
+query+=(form.elements[i].name+"="+form.elements[i].value+"&");
+ }
+        }
+         window.location.href = arquivo+query;
  });
+ 
 
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
+        //document.querySelector("#slc").onclick=function(){
 /*
 //document.querySelector("#slc").addEventListener("change",function(){
 // document.querySelector("#btn").addEventListener("click",function(){
@@ -179,10 +167,9 @@ document.querySelector("#form").submit();
 window.location.href = "testelogin.jsp?nmm=" +nome; 
  
  }
-});       
       
-      */
- 
+}); 
+*/
     </script>
     
     

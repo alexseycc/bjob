@@ -67,7 +67,7 @@ catch(Exception e){
 }
     
 out.println("<h1>Cadastro BingoJob!</h1>");
-    //impressão do cadastro
+    //impress達o do cadastro
 for(int j=0;j<incremento();j++){
 out.println(camposDivididos()[j]+":"+request.getParameter(camposDivididos()[j])+"<br>");
 }
