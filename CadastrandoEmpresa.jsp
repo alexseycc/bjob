@@ -1,6 +1,7 @@
 <%@ page language="java"%>
 <%@ page contentType = "text/html;charset=utf-8" %>
 <%@page import="java.sql.*"%>
+<%@page import="func.*"%>
 <!--%@ page language="java" import="conexao.*"%-->
 <link rel="stylesheet" type="text/css" href="./css/stilo.css" >
 <%@include file="con.jsp" %>
@@ -55,10 +56,10 @@ return res;
     <%       //try catch dont necessary but dont allow eoor
 try{
 pst=con.prepareStatement("insert into empresa("+campos("nome,email,descricao,tel,endereco")+") values("+getValue()+")"); 
-for(int i=1;i<=incremento();i+=2){
+for(int i=1;i<=incremento();i+=2){    
 pst.setString(i,request.getParameter(""+camposDivididos()[--i]+""));
 }
-pst.execute();
+//pst.execute();
 pst.close();
 con.close();
     }
@@ -66,10 +67,13 @@ catch(Exception e){
 }
     
 out.println("<h1>Cadastro BingoJob!</h1>");
-    
+    //impressão do cadastro
 for(int j=0;j<incremento();j++){
 out.println(camposDivididos()[j]+":"+request.getParameter(camposDivididos()[j])+"<br>");
 }
+    //Empresa emp = new Empresa();
+//out.println("opt:"+emp.getNome());
+// out.println("desc:"+dc);
     %>
 
     </div>

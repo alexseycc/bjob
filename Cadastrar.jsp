@@ -65,6 +65,8 @@ catch(Exception e){
 }
 */
 %>
+<body>
+    
 <%
 Empresa emp=new Empresa();
 emp.setNome("ha");
@@ -97,7 +99,7 @@ con.close();
 catch(Exception e){
 } 
 */
-
+/*
 out.println("<br>campos:"+campos("nome,email"));
 out.println("<br>campos:"+parametro);
 out.println("<br>"+getValue());
@@ -109,5 +111,79 @@ out.println("<br>ps.setString("+(i+1)+",request.getParameter(\""+camposDivididos
 }
 String cmp[]=camposDivididos2().replace("[","").split(",");
 out.println("<br>capoDividido2:"+cmp[0]+"");
-
+*/
 %>
+<form method="get" id="form" name="form">
+<input type="text" placeholder="nome" id="nm" name="nm"/>
+<input type="text" placeholder="nome" id="nm2" name="nm"/>
+<input type="text" id="nome" name="nome"/>
+<input type="text" id="email" name="email" placeholder="@exemplo.com"/>
+<input type="text" id="descricao" name="descricao"/>
+<input type="text" id="tel" name="tel" placeholder="(00)0000-0000"/>
+<select id="slc" value="alx">
+        <option>a</option>
+    <option>b</option>
+    </select>
+    
+    <input type="button" id="btn" value="verificar"/>
+</form>
+    <script>
+        quantElement=document.getElementById("form").length;
+        form=document.getElementById("form");
+        for(i=1;i<quantElement;i++){
+         alert("valor"+form.elements[i].value+"------id:"+form[i].id+"-----name:"+form.elements[i].name);
+        }
+        
+        //document.querySelector("#slc").addEventListener("change",function(){
+document.querySelector("#btn").addEventListener("click",function(){
+    var nome=document.querySelector("#slc").value;
+ var myObj = {nm:"alxsy"};
+ //var myJSON = JSON.stringify(myObj["name"]);
+window.location.href = "testelogin.jsp?nmm=" +myObj["nm"]+"&slc="+nome; 
+//window.open("testelogin.jsp?nmm=" +nome); 
+ 
+ });
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+/*
+//document.querySelector("#slc").addEventListener("change",function(){
+// document.querySelector("#btn").addEventListener("click",function(){
+var nome=document.querySelector("#slc").value;
+alert(nome);
+document.querySelector("#form").action="testelogin.jsp?nmm="+nome;
+document.querySelector("#form").submit();    
+//var myObj = ;
+//var myJSON = JSON.stringify(myObj["name"]);
+window.location.href = "testelogin.jsp?nmm=" +nome; 
+ 
+ }
+});       
+      
+      */
+ 
+    </script>
+    
+    
+</body>

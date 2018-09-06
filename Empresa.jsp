@@ -25,7 +25,7 @@ rs.next();
             <div class="content">
 <div class="title">Empresa</div>
                <pre>
-                <form action="CadastrandoEmpresa.jsp" method="get" id="formulario">
+                <form action="" method="get" id="formulario">
                     <label>Nome</label>            <input type="text" id="nome" name="nome"/>
                     <label>Email</label>           <input type="text" id="email" name="email" placeholder="@exemplo.com"/>
                     <label>DescriçãoDaVaga</label> <input type="text" id="descricao" name="descricao"/>
@@ -49,11 +49,42 @@ rs=st.executeQuery("select descricao from tipo order by descricao");
     </body>	
 </html>
 <script>
+ document.querySelector("#formulario").addEventListener("click",function(){
+ var nome=document.querySelector("#nome").value;
+ var email=document.querySelector("#email").value;
+ var descricao=document.querySelector("#descricao").value;
+ var tel=document.querySelector("#tel").value;
+ var tipo=document.querySelector("#tipo").value;
+ var endereco=document.querySelector("#endereco").value;
+
+     window.location.href = "testelogin.jsp?nome="+nome+"&email="+email+"&descricao="+descricao+"&tel="+tel+"&tipo="+tipo+"&endereco="+endereco; 
+//window.open("testelogin.jsp?nmm=" +nome); 
+ 
+
+     
+ });
+                        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 $(document).ready(function(){
    $("#tel").mask("(00)0000-0000"); 
-   $("#cnpj").mask("000-000-000/0000-0"); 
+   $("#cnpj").mask("000-000-000/0000-0");
+    
+    
+    $("#tipo").change(function(){
+        alert($("#tipo").val());
+    });
 });
 </script>
 <script>
 document.getElementById("formulario").reset()
-    </script>
+  
+      </script>
