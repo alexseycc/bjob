@@ -25,7 +25,7 @@ rs.next();
             <div class="content">
 <div class="title">Empresa</div>
                <pre>
-                <form action="" method="get" id="formulario">
+                <form action="CadastrandoEmpresa.jsp?" method="get" id="formulario">
                     <label>Nome</label>            <input type="text" id="nome" name="nome"/>
                     <label>Email</label>           <input type="text" id="email" name="email" placeholder="@exemplo.com"/>
                     <label>Telefone</label>        <input type="text" id="tel" name="tel" placeholder="(00)0000-0000"/>
@@ -40,7 +40,7 @@ rs=st.executeQuery("select descricao from tipo order by descricao");
                     <label>Endereco</label>
                     <textarea rows="4" cols="50" id="endereco" name="endereco">
                     </textarea> 
-                    <input type="button" value="Cadastrar" style="height:20px;width:200px" class="btn-primary btn-sm" id="cad_btn"/>
+                    <input type="submit" value="Cadastrar" style="height:20px;width:200px" class="btn-primary btn-sm" id="cad_btn"/>
                 </form></pre>
             </div>
         </div>
