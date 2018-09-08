@@ -1,4 +1,4 @@
-<%@ page contentType = "text/html;charset=utf-8"%>
+<%@ page contentType = "text/html;charset=utf-8" %>
 <%@ page import="func.*" %> 
 <%@include file="con.jsp"%>
 <%@ page import="conexao.*" import="java.io.*,java.sql.*,javax.sql.*" %>
@@ -10,9 +10,9 @@ rs.next();
 %>
         
 
-<html>
+<html lang="pt-br">
     <head>
-  <meta charset="UTF-8">
+  <meta>
 </head>
     <title><%=rs.getString("nome")+"Empresa"%></title>
 <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" >

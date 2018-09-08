@@ -1,14 +1,14 @@
-<%@ page language="java"%>
 <%@ page contentType = "text/html;charset=utf-8" %>
+<%@ page language="java"%>
 <%@page import="java.sql.*"%>
 <%@page import="func.*"%>
 <!--%@ page language="java" import="conexao.*"%-->
 <link rel="stylesheet" type="text/css" href="./css/stilo.css" >
 <%@include file="con.jsp" %>
 
-<html>
+<html lang="pt-br"> 
     <head>
-        <meta charse="utf-8">
+        <meta>
 </head>
 <link rel="stylesheet" type="text/css" href="./css/stilo.css" >
 <script src="./js/jquery.min.js"></script>
@@ -59,7 +59,7 @@ pst=con.prepareStatement("insert into empresa("+campos("nome,email,descricao,tel
 for(int i=1;i<=incremento();i+=2){    
 pst.setString(i,request.getParameter(""+camposDivididos()[--i]+""));
 }
-//pst.execute();
+pst.execute();
 pst.close();
 con.close();
     }
@@ -69,6 +69,7 @@ catch(Exception e){
 out.println("<h1>Cadastro BingoJob!</h1>");
     //impress達o do cadastro
 for(int j=0;j<incremento();j++){
+    request.setCharacterEncoding("UTF-8");
 out.println(camposDivididos()[j]+":"+request.getParameter(camposDivididos()[j])+"<br>");
 }
     //Empresa emp = new Empresa();
