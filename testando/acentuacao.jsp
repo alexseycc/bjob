@@ -3,6 +3,26 @@
 out.println("cora☼ção");
 %>
 <%request.setCharacterEncoding("UTF-8");%>
+<script>
+
+    var pessoa={nome:"alx",
+                idade:23,
+                tipo:{a:"a",b:"b",},
+                endereco:"rua almeida louca"};
+    //patt = new regex("^6");
+    //patt.test("6sd");
+    alert(pessoa["nome"]);
+    alert(pessoa["tipo"]["a"]);
+    let str="";
+    for(x in pessoa){
+     //if(typeof x === 'object' )
+     alert('objeto encontrado');
+         alert(x+"->"+pessoa[x]);
+    str+=x+"->"+pessoa[x];
+    }
+    alert(pessoa["tipo"]);
+    
+</script>
 <select id="slc" name="slc">
     <option>informação</option>
     <option>elétrica</option>
