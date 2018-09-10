@@ -99,9 +99,15 @@ String descS="<script>document.write(nome)</script>";
     <p id="texto">
         
    </body>
-
 </html>
-
+<script>
+$(document).ready(function(){
+ $("#tipo").change(function(){
+     alert("aloha");
+     
+ });   
+});
+</script>
 
 
 
