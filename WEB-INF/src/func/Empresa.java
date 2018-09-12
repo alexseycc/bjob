@@ -1,6 +1,4 @@
-import conexao.*;
-import java.io.*;
-import java.sql.*;
+package func;
 import javax.sql.*;
     
 public class Empresa{
@@ -9,9 +7,8 @@ public class Empresa{
     public String area;
     public String endereco;
     public String telefone;
-    
-    
-    
+    public String parametro="";
+   
     public void setNome(String nome){
     this.nome=nome;
     }
@@ -58,6 +55,42 @@ public class Empresa{
         
     }
     
-      
+ 
+
+//setando os campos do db
+public String campos(String campo){
+    this.parametro=campo;
+return this.parametro;
+}
+    //dividindo em array os campos
+public String[] camposDivididos(){
+String[] args=parametro.split("[,]");
+return args;
+       //return Arrays.toString(args);
+}
+
+    //descobrindo quantos campos tem
+public int incremento(){
+    String[] args=parametro.split("[,]");
+    int quant=args.length;
+    return quant;
+}
+    //colocando ps PREPARESTATEMENT embasado na quant dos campo
+    public String getValue(){
+String symbol="?";
+String comma=",";
+String res="";
+    for(int i=1;i<=incremento();i++){
+        if(i==incremento())
+        res+=symbol;  
+        else{
+        res+=(symbol+comma);  
+        }
+        }
+return res;
+}  
+   public String hello() {
+        return "Hello Fox";
+    }
     
 }

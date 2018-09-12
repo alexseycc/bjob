@@ -1,7 +1,6 @@
 <%@ page contentType = "text/html;charset=utf-8" %>
-<%@ page import="func.*" %> 
+<%@ page import="func.*" import="conexao.*" import="java.io.*,java.sql.*,javax.sql.*"%> 
 <%@include file="con.jsp"%>
-<%@ page import="conexao.*" import="java.io.*,java.sql.*,javax.sql.*" %>
 
 
 <%

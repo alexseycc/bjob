@@ -103,7 +103,8 @@ String descS="<script>document.write(nome)</script>";
 <script>
 $(document).ready(function(){
  $("#tipo").change(function(){
-     alert("aloha");
+     tipo=$("#tipo").val();
+     alert("aloha "+tipo);
      
  });   
 });
