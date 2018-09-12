@@ -24,7 +24,7 @@ pst=con.prepareStatement("insert into empresa("+emp.campos("nome,email,descricao
 for(int i=1;i<=emp.incremento();i+=2){    
 pst.setString(i,request.getParameter(""+emp.camposDivididos()[--i]+""));
 }
-//pst.execute();
+pst.execute();
 pst.close();
 con.close();
     }
