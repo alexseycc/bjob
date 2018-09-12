@@ -1,3 +1,5 @@
+create database bingojob;
+use bingojob;
 -- MySQL dump 10.13  Distrib 5.5.61, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: bingojob
