@@ -1,3 +1,4 @@
+package func;
 public class Pessoa{
     
     public String nome;

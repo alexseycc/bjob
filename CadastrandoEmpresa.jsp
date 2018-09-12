@@ -1,14 +1,13 @@
 <%@ page contentType = "text/html;charset=utf-8" %>
 <%@ page language="java"%>
-<%@page import="java.sql.*"%>
-<%@page import="func.*"%>
+<%@page import="java.sql.*" import="func.*"%>
 <!--%@ page language="java" import="conexao.*"%-->
 <link rel="stylesheet" type="text/css" href="./css/stilo.css" >
 <%@include file="con.jsp" %>
 
 <html lang="pt-br"> 
     <head>
-        <meta>
+        <meta carset="utf-8">
 </head>
 <link rel="stylesheet" type="text/css" href="./css/stilo.css" >
 <script src="./js/jquery.min.js"></script>
