@@ -4,12 +4,16 @@
 <%
 //String consulta="select * from empresa where descricao=''";
 try{
-    
-//st.executeQuery("select * from empresa where descricao='"++"'");
-pst.executeQuery("select * from empresa where descricao=?");
-st.setString(1,request.getParameter("json"));    
+rs=st.executeQuery("select * from empresa where descricao='"+request.getParameter("tipo")+"'");
+//pst.executeQuery("select * from empresa where descricao=?");
+//pst.setString(1,request.getParameter("tipo"));    
+//pst.execute();
+
+//pst.close();
+//con.close();
+rs.next();
+    rs.getString("nome");
 }
 catch(Exception e){
-    
-}
+    }
 %>

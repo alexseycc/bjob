@@ -39,28 +39,7 @@ sigla.push("<%=rs.getString("sigla")%>");
         <script>
     function mudar(){
         var nome=document.getElementById('tipo').value;
-        /*
-        switch(nome){
-            case "TI":
-                document.getElementById('tp').innerHTML="Tecnologia da Informação";
-            break;
-            case "EC":
-                document.getElementById('tp').innerHTML="Engenharia Cívil";
-            break;
-                case "EM":
-                document.getElementById('tp').innerHTML="Engenharia Mecanica";
-            break;
-            case "EE":
-                document.getElementById('tp').innerHTML="Engenharia Elétrica";
-            break;
-            case "PB":
-                document.getElementById('tp').innerHTML="Publicidade";
-            break;
-            case "ADM":
-                document.getElementById('tp').innerHTML="Admnistração";
-            break;
-               }
-               */
+
         for(var i=0;i<desc.length;i++)
             if(nome==sigla[i]){
                document.getElementById('tp').innerHTML=desc[i]; 
@@ -103,10 +82,15 @@ String descS="<script>document.write(nome)</script>";
 <script>
 $(document).ready(function(){
  $("#tipo").change(function(){
-     tipo=$("#tipo").val();
-     alert("aloha "+tipo);
-     
+     tipo=$("#tp").text();
+     alert("ok");
+    
+$get("encontrarVagaConsultas.jsp",{tipo:tipo},function(file){
+$("#texto").html(file); 
+});     
+ 
  });   
+
 });
 </script>
 

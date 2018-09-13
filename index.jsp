@@ -25,16 +25,7 @@ rs=st.executeQuery("select * from bj");
             </div>
         </div>
 
-<%
-Empresa emp = new Empresa();
-emp.setNome("GoldxEngenharia");
-emp.setArea("EngenhariaCívil");
-emp.setEmail("GoldxEngenharia@gmail.com");
-emp.setEndereco("Rua Thiago leal,EstelaMares");
-emp.setTelefone("987454632");
-%>
 
-    
     <%
 for(int i=0;i<=5;i++)    
  out.println("<br>");

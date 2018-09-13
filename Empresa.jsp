@@ -31,7 +31,6 @@ rs.next();
                 <label>Tipo</label>            <select name="descricao" style="width: 120px" id="descricao">
    <%
 rs=st.executeQuery("select descricao from tipo order by descricao");
-//rs=st.executeQuery("select descricao from tipo");
         while(rs.next()){
             out.println("<option>"+rs.getString("descricao")+"</option>");
         }%>
@@ -48,17 +47,7 @@ rs=st.executeQuery("select descricao from tipo order by descricao");
 </html>
 <script>
  document.querySelector("#cad_btn").addEventListener("click",function(){
-/*
-     var nome=document.querySelector("#nome").value;
- var email=document.querySelector("#email").value;
- var descricao=document.querySelector("#descricao").value;
- var tel=document.querySelector("#tel").value;
- var tipo=document.querySelector("#tipo").value;
- var endereco=document.querySelector("#endereco").value;
 
-     window.location.href = "testelogin.jsp?nome="+nome+"&email="+email+"&descricao="+descricao+"&tel="+tel+"&tipo="+tipo+"&endereco="+endereco; 
-//window.open("testelogin.jsp?nmm=" +nome); 
- */
 quantElement=document.getElementById("formulario").length;
 form=document.getElementById("formulario");
 arquivo="CadastrandoEmpresa.jsp?";
@@ -76,16 +65,6 @@ window.location.href = arquivo+query;
      
  });
                         
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 $(document).ready(function(){
    $("#tel").mask("(00)0000-0000"); 
    $("#cnpj").mask("000-000-000/0000-0");
