@@ -90,5 +90,13 @@ String res="";
 return res;
 }  
  
-    
+    /*
+    public String[] emp(String desc,Connection con){
+PrepareStatement pst = con.preparedstatement("select * from empresa where descricao=?");
+pst.setString(1,desc);
+ResultSet rs=pst.executeQuery();
+rs.next();
+        return rs.getString("nome");
+    }
+    */
 }

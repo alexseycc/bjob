@@ -37,8 +37,13 @@ i++;
 out.println("quantdade:"+i);
 
 %>
+<select id="slc" onchange="mudar()">
+    <option>Educação</option>
+    <option>Tecnologia da Informação</option>
 <%
-ResultSet rst2=query.executeQuery("select * from empresa where descricao='Tecnologia da Informação'");
+    String desc="Tecnologia da Informação";
+String nn="<script>document.write(document.querySelector('#slc').value)</script>";
+ResultSet rst2=query.executeQuery("select * from empresa where descricao='"+desc+"'");
 rst2.next();
 //while(rst2.next()){
 String nome=rst2.getString("nome");
@@ -48,23 +53,22 @@ String tel=rst2.getString("tel");
 String endereco=rst2.getString("endereco");
 //}
 //out.println(rst2.getString("nome"));
-  %>
-<select id="slc" onchange="mudar()">
-    <option>nada</option>
-    <option>Tecnologia da Informação</option>
-</select>
+  %></select>
 <script>
 function mudar(){
-    alert(document.querySelector("#slc").value);
+    <%
+    //String valor="<script>document.write(document.querySelector('#slc').value)</script>";
+    String valor="ll";
+    %>
+    valor="<%=valor%>"
     nome="<%=nome%>";
     email="<%=email%>";
     descricao="<%=descricao%>";
     tel="<%=tel%>";
     endereco="<%=endereco%>";
-    alert("weocome "+nome);
-    document.querySelector("#txt").innerHTML="nome:"+nome+"<br>email:"+email+"<br>tel:"+tel+"<br>endereco"+endereco;
+    document.querySelector("#txt").innerHTML="nome:"+nome+"<br>email:"+email+"<br>descricao:"+descricao+"<br>tel:"+tel+"<br>endereco"+endereco+"valor:"+valor;
 }
 </script>
 <p id="txt">
-    nome
 </p>
+<%="ak:"+nn%>
