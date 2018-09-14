@@ -85,7 +85,7 @@ $(document).ready(function(){
      tipo=$("#tp").text();
      alert("ok");
     
-$get("encontrarVagaConsultas.jsp",{tipo:tipo},function(file){
+$.get("encontrarVagaConsultas.jsp",{tipo:tipo},function(file){
 $("#texto").html(file); 
 });     
  
