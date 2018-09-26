@@ -5,7 +5,7 @@ import java.sql.*;
 import javax.sql.*;
 
 public class BingoJob{
-public String ceo="alxsey Rebouรงas";
+public String ceo="alxsey Reboucas";
 public String titulo="BingoJob";
 public final String data="28/07/20182018";
             
