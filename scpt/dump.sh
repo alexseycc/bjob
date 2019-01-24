@@ -1,1 +1,1 @@
-mysqldump -u root -p bingojob > ./sql/`date +%d_%m_%Y`.sql
+mysqldump -u root -p bingojob > ../sql/`date +%d_%m_%Y`.sql
